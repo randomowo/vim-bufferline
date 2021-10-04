@@ -35,6 +35,10 @@ function! s:generate_names()
                     let name =  i . ':'
                 endif
 
+                if len(fname) == 0
+                    let fname = g:bufferline_unnamed
+                endif
+
                 let name .= fname . modified
 
                 call add(names, [i, name])

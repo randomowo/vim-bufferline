@@ -88,7 +88,10 @@ values):
 * denotes whether paths in buffer names should be |pathshorten()|-ed.
 >
   let g:bufferline_pathshorten = 0
-<
+
+* default name for unnamed buffer
+>
+  let g:bufferline_unnamed = '[No Name]'
 
 ==============================================================================
 STATUSLINE INTEGRATION                               *bufferline-statusline*
