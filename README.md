@@ -1,3 +1,5 @@
+Forked from [bling/vim-bufferline](https://github.com/bling/vim-bufferline) with new features
+
 # vim-bufferline
 
 Super simple vim plugin to show the list of buffers in the command bar.
@@ -19,15 +21,15 @@ Super simple vim plugin to show the list of buffers in the command bar.
 # installation
 
 *  [pathogen](https://github.com/tpope/vim-pathogen)
-  *  `git clone https://github.com/bling/vim-bufferline ~/.vim/bundle/vim-bufferline`
+  *  `git clone https://github.com/randomowo/vim-bufferline ~/.vim/bundle/vim-bufferline`
 *  [neobundle](https://github.com/Shougo/neobundle.vim)
-  *  `NeoBundle 'bling/vim-bufferline'`
+  *  `NeoBundle 'randomowo/vim-bufferline'`
 *  [vundle](https://github.com/gmarik/vundle)
-  *  `Plugin 'bling/vim-bufferline'`
+  *  `Plugin 'randomowo/vim-bufferline'`
 *  [vam](https://github.com/MarcWeber/vim-addon-manager)
   *  `call vam#ActivateAddons([ 'vim-bufferline' ])`
 *  [vim-plug](https://github.com/junegunn/vim-plug)
-  *  `Plug 'bling/vim-bufferline'`
+  *  `Plug 'randomowo/vim-bufferline'`
 
 # credits
 
