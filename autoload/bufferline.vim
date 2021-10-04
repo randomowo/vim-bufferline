@@ -34,14 +34,8 @@ function! s:generate_names()
                 if g:bufferline_show_bufnr != 0 && g:bufferline_status_info.count >= g:bufferline_show_bufnr
                     let name =  i . ':'
                 endif
-                let name .= fname . modified
 
-                if current_buffer == i
-                    let name = g:bufferline_active_buffer_left . name . g:bufferline_active_buffer_right
-                    let g:bufferline_status_info.current = name
-                else
-                    let name = g:bufferline_separator . name . g:bufferline_separator
-                endif
+                let name .= fname . modified
 
                 call add(names, [i, name])
             endif
@@ -66,15 +60,30 @@ function! bufferline#get_echo_string()
     endif
 
     let names = s:generate_names()
+    let current_buffer = bufnr('%')
+
+    let g:bufferline_status_info.count = len(names)
+    let g:bufferline_status_info.before = ''
+    let g:bufferline_status_info.current = ''
+    let g:bufferline_status_info.after = ''
+
     let line = ''
     for val in names
+        if val[0] != current_buffer
+            let name = g:bufferline_separator . val[1] . g:bufferline_separator
+            if val[0] < current_buffer
+                let g:bufferline_status_info.before .= name
+            else
+                let g:bufferline_status_info.after .= name
+            endif
+        else
+            let name = g:bufferline_active_buffer_left . val[1] . g:bufferline_active_buffer_right
+            let g:bufferline_status_info.current = name
+        endif
+
         let line .= val[1]
     endfor
 
-    let index = match(line, '\V'.g:bufferline_status_info.current)
-    let g:bufferline_status_info.count = len(names)
-    let g:bufferline_status_info.before = strpart(line, 0, index)
-    let g:bufferline_status_info.after = strpart(line, index + len(g:bufferline_status_info.current))
     return line
 endfunction
 
